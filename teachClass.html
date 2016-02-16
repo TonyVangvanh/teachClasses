@@ -1,0 +1,33 @@
+
+<html ng-app>
+<head>
+<script type="text/javascript">
+    function StudentsController($scope){
+        $scope.name="John Doe";
+        $scope.students=['tony','mike','keith','ben'];
+        $scope.addStudent=function(){
+            $scope.students.push($scope.newStudent);
+        };
+    }
+</script>
+</head>
+<body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<div ng-controller="StudentsController">
+    Enter Your Name : <input type="text" ng-model="name">
+    Select a Student to ask question :
+        <select ng-model="selectedStudent" ng-options="student for student in students">
+        </select>
+    <hr/>
+    List of Students :
+    <ul><li ng-repeat="student in students">{{student}}</li></ul>
+    <hr />
+    Name : {{name}}<br />
+    Selected student : {{selectedStudent}}
+    <hr />
+    Add student :
+        <input type="text" ng-model="newStudent">
+        <button ng-click="addStudent()">Add</button>
+</div>
+</body>
+</html>
